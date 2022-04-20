@@ -3,10 +3,10 @@ import React from "react";
 const Loading = () => {
   return (
     <div
-      class="spinner-border text-secondary d-flex align-item-center justify-content-center container mt-5"
+      className="spinner-border text-secondary d-flex align-item-center justify-content-center container mt-5"
       role="status"
     >
-      <span class="visually-hidden">Loading...</span>
+      <span className="visually-hidden">Loading...</span>
     </div>
   );
 };

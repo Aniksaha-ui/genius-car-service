@@ -9,6 +9,7 @@ import {
 import SocialMedia from "../Shared/SocialMedia/SocialMedia";
 import { ToastContainer, toast } from "react-toastify";
 import { async } from "@firebase/util";
+import PageTitle from "../Shared/PageTitle/PageTitle";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -50,73 +51,76 @@ const Login = () => {
   };
 
   return (
-    <div className="registration-form">
-      <form onSubmit={handleSubmit}>
-        <div className="form-icon">
+    <>
+      <PageTitle title="Login"></PageTitle>
+      <div className="registration-form">
+        <form onSubmit={handleSubmit}>
+          <div className="form-icon">
+            <span>
+              <i className="icon icon-user"></i>
+            </span>
+          </div>
+
+          <div className="form-group">
+            <input
+              ref={emailRef}
+              type="text"
+              className="form-control item"
+              id="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <input
+              ref={passwordRef}
+              type="password"
+              className="form-control item"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <input
+              type="submit"
+              value="Login"
+              className="btn btn-block create-account"
+            />
+          </div>
+          <br />
+        </form>
+
+        <ToastContainer />
+        <SocialMedia />
+
+        <p className="text-primary">
+          New in Genius car service?
           <span>
-            <i className="icon icon-user"></i>
+            <button
+              onClick={handleRegisterNow}
+              className="btn btn-danger border-0 ms-3 my-2"
+            >
+              Register Now
+            </button>
           </span>
-        </div>
+        </p>
 
-        <div className="form-group">
-          <input
-            ref={emailRef}
-            type="text"
-            className="form-control item"
-            id="email"
-            placeholder="Email"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <input
-            ref={passwordRef}
-            type="password"
-            className="form-control item"
-            id="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <input
-            type="submit"
-            value="Login"
-            className="btn btn-block create-account"
-          />
-        </div>
-        <br />
-      </form>
-
-      <ToastContainer />
-      <SocialMedia />
-
-      <p className="text-primary">
-        New in Genius car service?
-        <span>
-          <button
-            onClick={handleRegisterNow}
-            className="btn btn-danger border-0 ms-3 my-2"
-          >
-            Register Now
-          </button>
-        </span>
-      </p>
-
-      <p className="text-primary">
-        Forget Password
-        <span>
-          <button
-            onClick={handleForgetPassword}
-            className="btn btn-danger border-0 ms-3 my-2"
-          >
-            Forget Password?
-          </button>
-        </span>
-      </p>
-    </div>
+        <p className="text-primary">
+          Forget Password
+          <span>
+            <button
+              onClick={handleForgetPassword}
+              className="btn btn-danger border-0 ms-3 my-2"
+            >
+              Forget Password?
+            </button>
+          </span>
+        </p>
+      </div>
+    </>
   );
 };
 
