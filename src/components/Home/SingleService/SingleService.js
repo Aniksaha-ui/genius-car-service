@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const SingleService = (props) => {
-  const { id, name, description, price, img } = props.service;
+  const { _id, name, description, price, img } = props.service;
 
   const navigate = useNavigate();
-  const handleShowDetails = (id) => {
-    navigate(`/service/${id}`);
+  const handleShowDetails = (_id) => {
+    navigate(`/service/${_id}`);
   };
 
   return (
@@ -21,7 +21,7 @@ const SingleService = (props) => {
               <h6 className="card-text">Service Charge :{price}</h6>
               <div className="align-item-center justify-content-center">
                 <button
-                  onClick={() => handleShowDetails(id)}
+                  onClick={() => handleShowDetails(_id)}
                   className="btn-danger"
                 >
                   Show Details

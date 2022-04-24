@@ -3,6 +3,7 @@ import CustomLink from "../../CustomLink/CustomLink";
 import auth from "../../../firebase.init";
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -52,15 +53,22 @@ const Header = () => {
                   </CustomLink>
                 </li>
               ) : (
-                <li className="nav-item">
-                  <button
-                    onClick={() => signOut(auth)}
-                    className="btn btn-danger"
-                    to="/register"
-                  >
-                    logout
-                  </button>
-                </li>
+                <>
+                  <li className="nav-item">
+                    <CustomLink className="nav-link" to="/manage">
+                      Service Management
+                    </CustomLink>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      onClick={() => signOut(auth)}
+                      className="btn btn-danger"
+                      to="/register"
+                    >
+                      logout
+                    </button>
+                  </li>
+                </>
               )}
             </ul>
           </div>
